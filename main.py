@@ -208,7 +208,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                 'Ogro', 'Escorpião', 'Cobra Selvagem', 'Lobo', 'Crocodilo', 'Dragão', 'Infernal']
 
     monsters_high = ['Zumbi Gigante', 'Leviatã', 'Dragão Negro', 'Fênix Dourada', 'Troll Raivoso', 'Basilisco', 'Hidra',
-                     'Grifo', 'Gólem', 'Infernal', 'Infernal', 'Gigante', 'Monstro do Lago', 'Dragão', 'Crocodilo',
+                     'Grifo', 'Gólem', 'Infernal', 'Gigante', 'Monstro do Lago', 'Dragão', 'Crocodilo',
                      'Fada', 'Spectro', 'Guerreiro Sombrio', 'Clérigo Corrompido']
     # Monstros Divididos por nível
     monsters_lv1 = ['Goblin', 'Rato', 'Esqueleto', 'Slime', 'Aranha', 'Zumbi', 'Duente']
