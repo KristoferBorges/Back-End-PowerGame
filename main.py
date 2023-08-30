@@ -1,7 +1,8 @@
 # import pdb
 from pygame import mixer
-import random
 from time import sleep
+from app.functions.collet import colletData
+import random
 
 # Sons / Musicas
 mixer.init()
@@ -447,8 +448,12 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                 print(green + '   2x Pela Vitória!' + normal)
                 mixer.music.stop()
                 win.play()
+
+                resultadoFinal = 'win'
+                # Derivando dados para análise
+                colletData(multiplicador, point, cont, valorTotal, resultado)
                 x = int(input(''))
-                break
+
             else:
                 valorTotal = aposta * multiplicador
                 print(green + 'Parabéns!')
@@ -459,12 +464,15 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                 print(green + '   Valor Acumulado R${:.2f}'.format(valorTotal))
                 mixer.music.stop()
                 win.play()
+
+                resultadoFinal = 'win'
+                # Derivando dados para análise
+                colletData(multiplicador, point, cont, valorTotal, resultado)
                 x = int(input(''))
-                break
+
         elif power_usuario <= 350 or user_level <= 0:
             # Atribuição de valores
             if point <= 0:
-                point = 0
                 valorTotal = 0
             else:
                 valorTotal = aposta * multiplicador
@@ -480,8 +488,12 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
             lose.play()
             if card_monster == 'Infernal':
                 roarlose.play()
+
+            resultadoFinal = 'lose'
+            # Derivando dados para análise
+            colletData(multiplicador, point, cont, valorTotal, resultado)
+
             x = int(input(''))
-            break
         # Contador de batalhas
 
         cont += 1
@@ -495,6 +507,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
         result()
         print('   --> {:.2f}x'.format(multiplicador))
         print('   --> {} Pontos'.format(point))
+
 elif iniciar_jogo == 'NÃO' or iniciar_jogo == 'N':
     print(green + '               Escolheu Bem!' + normal)
     mixer.music.stop()
