@@ -174,7 +174,10 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                     # Rugido
                     roar()
             else:
-                point = point - random.randint(3, 10)
+                if point <= 0:
+                    point = 0
+                else:
+                    point = point - random.randint(3, 10)
             power_usuario = power_usuario - 250
             power_monster = power_monster - 450
             soma_nivel = soma_nivel + 1
