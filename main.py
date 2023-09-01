@@ -451,7 +451,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
 
                 resultadoFinal = 'win'
                 # Derivando dados para análise
-                colletData(multiplicador, point, cont, valorTotal, resultado)
+                colletData(multiplicador, point, cont, aposta, valorTotal, resultado)
                 x = int(input(''))
 
             else:
@@ -467,7 +467,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
 
                 resultadoFinal = 'win'
                 # Derivando dados para análise
-                colletData(multiplicador, point, cont, valorTotal, resultado)
+                colletData(multiplicador, point, cont, aposta, valorTotal, resultado)
                 x = int(input(''))
 
         elif power_usuario <= 350 or user_level <= 0:
@@ -491,11 +491,11 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
 
             resultadoFinal = 'lose'
             # Derivando dados para análise
-            colletData(multiplicador, point, cont, valorTotal, resultado)
+            colletData(multiplicador, point, cont, aposta, valorTotal, resultado)
 
             x = int(input(''))
+            
         # Contador de batalhas
-
         cont += 1
 
         # Informação na tela
