@@ -6,19 +6,19 @@ import random
 
 # Sons / Musicas
 mixer.init()
-selecionar = mixer.Sound(r'music\escolha12.wav')
-lose = mixer.Sound(r'music\lose.wav')
-win = mixer.Sound(r'music\winwin.wav')
-boss = mixer.Sound(r'music\infernal2.wav')
-bonus = mixer.Sound(r'music\bonus.wav')
-critico = mixer.Sound(r'music\critico.wav')
-roar1 = mixer.Sound(r'music\Roar1.mp3')
-roar2 = mixer.Sound(r'music\Roar2.mp3')
-roar3 = mixer.Sound(r'music\Roar3.mp3')
-roar4 = mixer.Sound(r'music\Roar4.mp3')
-roarlose = mixer.Sound(r'music\RoarLose.mp3')
-roardead = mixer.Sound(r'music\Roardead.mp3')
-mixer.music.load(r'music\digital.mp3')
+selecionar = mixer.Sound(r'app\media\music\escolha12.wav')
+lose = mixer.Sound(r'app\media\music\lose.wav')
+win = mixer.Sound(r'app\media\music\winwin.wav')
+boss = mixer.Sound(r'app\media\music\infernal2.wav')
+bonus = mixer.Sound(r'app\media\music\bonus.wav')
+critico = mixer.Sound(r'app\media\music\critico.wav')
+roar1 = mixer.Sound(r'app\media\music\Roar1.mp3')
+roar2 = mixer.Sound(r'app\media\music\Roar2.mp3')
+roar3 = mixer.Sound(r'app\media\music\Roar3.mp3')
+roar4 = mixer.Sound(r'app\media\music\Roar4.mp3')
+roarlose = mixer.Sound(r'app\media\music\RoarLose.mp3')
+roardead = mixer.Sound(r'app\media\music\Roardead.mp3')
+mixer.music.load(r'app\media\music\digital.mp3')
 mixer.music.play(-1)
 
 
@@ -494,7 +494,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
             colletData(multiplicador, point, cont, aposta, valorTotal, resultado)
 
             x = int(input(''))
-            
+
         # Contador de batalhas
         cont += 1
 
