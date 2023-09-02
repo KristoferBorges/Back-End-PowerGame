@@ -2,25 +2,16 @@
 from pygame import mixer
 from time import sleep
 from app.functions.collet import colletData
+from app import selecionar, lose, win, boss, bonus, critico, roar1, roar2, roar3, roar4, roarlose, roardead
+from app import red, green, yellow, ciano, normal
+from app import resultado, escolha, skipBoss, choiceBonus, escolha_usar_item, soma_nivel, aposta, multiplicador, lv_choice, roarChoice, point, pointx
 import random
+
 
 # Sons / Musicas
 mixer.init()
-selecionar = mixer.Sound(r'app\media\music\escolha12.wav')
-lose = mixer.Sound(r'app\media\music\lose.wav')
-win = mixer.Sound(r'app\media\music\winwin.wav')
-boss = mixer.Sound(r'app\media\music\infernal2.wav')
-bonus = mixer.Sound(r'app\media\music\bonus.wav')
-critico = mixer.Sound(r'app\media\music\critico.wav')
-roar1 = mixer.Sound(r'app\media\music\Roar1.mp3')
-roar2 = mixer.Sound(r'app\media\music\Roar2.mp3')
-roar3 = mixer.Sound(r'app\media\music\Roar3.mp3')
-roar4 = mixer.Sound(r'app\media\music\Roar4.mp3')
-roarlose = mixer.Sound(r'app\media\music\RoarLose.mp3')
-roardead = mixer.Sound(r'app\media\music\Roardead.mp3')
 mixer.music.load(r'app\media\music\digital.mp3')
 mixer.music.play(-1)
-
 
 # Processo para elevação de poder / nível após certo nível //
 def aumento_de_poder():
@@ -76,30 +67,6 @@ def if_monsters():
             card_monster == 'Gólem':
         power_monster = power_monster + monster_power_lv4
 
-
-# Cores
-red = '\033[31m'
-green = '\033[32m'
-yellow = '\033[33m'
-ciano = '\033[36m'
-normal = '\033[m'
-
-# Variáveis importantes!
-resultado = ''
-escolha = ''
-skipBoss = 0
-choiceBonus = 0
-escolha_usar_item = 0
-soma_nivel = 0
-aposta = 0
-multiplicador = 0.00
-lv_monster_print = 0
-lv_choice = 0
-roarChoice = 0
-# pontos
-point = 0
-pointx = random.randint(1, 10)
-
 # Contador de Batalhas
 cont = 0
 
@@ -131,18 +98,21 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
         skipBoss = 1
         print(green + '    Você Escolheu (SKIP DE BOSS)!' + normal)
         print('\n')
+        item = 'SkipBoss'
     elif item_escolhido == 2:
         choiceBonus = 2
         print(green + '    Você Escolheu (BONUS DE PODER)!' + normal)
         print('\n')
+        item = 'BonusPower'
     else:
         print(red + '    Nenhum item escolhido!' + normal)
         print('\n')
+        item = 'Nenhum'
 
     # Inserção de Dinheiro
     print(yellow + '    MAX - R$ 100,00' + normal)
     print(green + '    Qual valor deseja apostar?')
-    aposta = float(input('    R$' + normal))
+    aposta = float(input('    R$' + normal).replace(',', '.'))
     selecionar.play()
     print('\n')
 
@@ -265,7 +235,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
         # Variáveis para o Item de bonus
         powerBonus = random.randint(1000, 5000)
         choice = random.randint(1, 20)
-        sleep(0.2)
+        sleep(0)
         # Definição de níveis conforme a entidade + poder inicial
         if lv_monster == 1:
             power_monster = power_monster + power_lv1
@@ -451,7 +421,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
 
                 resultadoFinal = 'win'
                 # Derivando dados para análise
-                colletData(multiplicador, point, cont, aposta, valorTotal, resultado)
+                colletData(item, multiplicador, point, cont, aposta, valorTotal, resultado)
                 x = int(input(''))
 
             else:
@@ -467,7 +437,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
 
                 resultadoFinal = 'win'
                 # Derivando dados para análise
-                colletData(multiplicador, point, cont, aposta, valorTotal, resultado)
+                colletData(item, multiplicador, point, cont, aposta, valorTotal, resultado)
                 x = int(input(''))
 
         elif power_usuario <= 350 or user_level <= 0:
@@ -491,7 +461,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
 
             resultadoFinal = 'lose'
             # Derivando dados para análise
-            colletData(multiplicador, point, cont, aposta, valorTotal, resultado)
+            colletData(item, multiplicador, point, cont, aposta, valorTotal, resultado)
 
             x = int(input(''))
 
