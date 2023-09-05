@@ -235,7 +235,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
         # Variáveis para o Item de bonus
         powerBonus = random.randint(1000, 5000)
         choice = random.randint(1, 20)
-        sleep(0)
+        sleep(0.2)
         # Definição de níveis conforme a entidade + poder inicial
         if lv_monster == 1:
             power_monster = power_monster + power_lv1
@@ -422,8 +422,9 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                 resultadoFinal = 'win'
                 # Derivando dados para análise
                 colletData(item, multiplicador, point, cont, aposta, valorTotal, resultado)
-                x = int(input(''))
-
+                x = str(input(yellow + '#Press enter to exit#'))
+                if x == '':
+                    break
             else:
                 valorTotal = aposta * multiplicador
                 print(green + 'Parabéns!')
@@ -438,8 +439,9 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                 resultadoFinal = 'win'
                 # Derivando dados para análise
                 colletData(item, multiplicador, point, cont, aposta, valorTotal, resultado)
-                x = int(input(''))
-
+                x = str(input(yellow + '#Press enter to exit#'))
+                if x == '':
+                    break
         elif power_usuario <= 350 or user_level <= 0:
             # Atribuição de valores
             if point <= 0:
@@ -463,8 +465,9 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
             # Derivando dados para análise
             colletData(item, multiplicador, point, cont, aposta, valorTotal, resultado)
 
-            x = int(input(''))
-
+            x = str(input(yellow + '#Press enter to exit#'))
+            if x == '':
+                break
         # Contador de batalhas
         cont += 1
 
