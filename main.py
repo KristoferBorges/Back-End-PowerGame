@@ -144,6 +144,8 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                 if power_monster > power_usuario and card_monster == 'Infernal':
                     # Rugido
                     roar()
+                if point <= 0:
+                    point = 0
             else:
                 if point <= 0:
                     point = 0
@@ -234,7 +236,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
     while power_usuario > 0:
         # Variáveis para o Item de bonus
         powerBonus = random.randint(500, 2500)
-        choice = random.randint(1, 30)
+        choice = random.randint(1, 50)
         sleep(0.2)
         # Definição de níveis conforme a entidade + poder inicial
         if lv_monster == 1:
