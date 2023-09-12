@@ -90,7 +90,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
     print(ciano + '{:^41}'.format('| Itens EXTRA |'))
     print('   Escolha| Descrição| Quantidade')
     print('     [1] - Skip de Boss (1)')
-    print('     [2] - CHANCE DE GANHAR PODER EXTRA (2)' + normal)
+    print('     [2] - CHANCE DE GANHAR PODER EXTRA (4)' + normal)
     item_escolhido = int(input('     ---> '))
     selecionar.play()
 
@@ -100,7 +100,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
         print('\n')
         item = 'SkipBoss'
     elif item_escolhido == 2:
-        choiceBonus = 2
+        choiceBonus = 4
         print(green + '    Você Escolheu (BONUS DE PODER)!' + normal)
         print('\n')
         item = 'BonusPower'
@@ -233,8 +233,8 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
     # Condicionais para V/D monstros
     while power_usuario > 0:
         # Variáveis para o Item de bonus
-        powerBonus = random.randint(1000, 5000)
-        choice = random.randint(1, 20)
+        powerBonus = random.randint(500, 2500)
+        choice = random.randint(1, 30)
         sleep(0.2)
         # Definição de níveis conforme a entidade + poder inicial
         if lv_monster == 1:
@@ -272,7 +272,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                     user_level = user_level - 5
                     power_usuario = power_usuario - 1000
                     print(red + '   DANO CRÍTICO!' + normal)
-                    sleep(3)
+                    sleep(2)
                     critico_infernal()
                 print('\n')
                 if_monsters()
@@ -312,7 +312,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                     power_usuario = power_usuario - 1000
                     point = point - 100
                     print(red + '   DANO CRÍTICO!' + normal)
-                    sleep(3)
+                    sleep(2)
                     critico_infernal()
                 print('\n')
                 if_monsters()
@@ -351,7 +351,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                     user_level = user_level - 5
                     power_usuario = power_usuario - 1000
                     print(red + '   DANO CRÍTICO!' + normal)
-                    sleep(3)
+                    sleep(2)
                     critico_infernal()
                 print('\n')
                 if_monsters()
@@ -390,7 +390,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                     user_level = user_level - 5
                     power_usuario = power_usuario - 1000
                     print(red + '   DANO CRÍTICO!' + normal)
-                    sleep(3)
+                    sleep(2)
                     critico_infernal()
                 print('\n')
                 if_monsters()
