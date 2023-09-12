@@ -444,7 +444,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                 x = str(input(yellow + '#Press enter to exit#'))
                 if x == '':
                     break
-        elif power_usuario <= 0 or user_level <= 0:
+        elif power_usuario <= 350 or user_level <= 0:
             # Atribuição de valores
             if point <= 0:
                 valorTotal = 0
