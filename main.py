@@ -244,7 +244,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
             aumento_de_poder()
             if card_monster == 'Infernal':
                 boss.play()
-                print(red + '   VOCÊ ENCONTROU UM BOSS INFERNAL NIVEL 10')
+                print(red + '   VOCÊ ENCONTROU UM BOSS INFERNAL')
                 if skipBoss >= 1:
                     print(green + '    Você possui um item para Fugir!')
                     print('    Deseja Fugir?')
@@ -283,7 +283,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
             aumento_de_poder()
             if card_monster == 'Infernal':
                 boss.play()
-                print(red + '   VOCÊ ENCONTROU UM BOSS INFERNAL NIVEL 10')
+                print(red + '   VOCÊ ENCONTROU UM BOSS INFERNAL')
                 if skipBoss >= 1:
                     print(green + '    Você possui um item para Fugir!')
                     print('    Deseja Fugir?')
@@ -323,7 +323,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
             aumento_de_poder()
             if card_monster == 'Infernal':
                 boss.play()
-                print(red + '   VOCÊ ENCONTROU UM BOSS INFERNAL NIVEL 10')
+                print(red + '   VOCÊ ENCONTROU UM BOSS INFERNAL')
                 if skipBoss >= 1:
                     print(green + '    Você possui um item para Fugir!')
                     print('    Deseja Fugir?')
@@ -362,7 +362,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
             aumento_de_poder()
             if card_monster == 'Infernal':
                 boss.play()
-                print(red + '   VOCÊ ENCONTROU UM BOSS INFERNAL NIVEL 10')
+                print(red + '   VOCÊ ENCONTROU UM BOSS INFERNAL')
                 if skipBoss >= 1:
                     print(green + '    Você possui um item para Fugir!')
                     print('    Deseja Fugir?')
