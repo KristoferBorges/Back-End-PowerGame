@@ -357,8 +357,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                     break
         elif power_usuario <= 350 or user_level <= 0:
             # Atribuição de valores
-            if point <= 0:
-                valorTotal = 0
+            valorTotal = 0
             print(yellow + '   -x-x-x-x--x-x-x-x--x-x-x-x--x-' + normal)
             print(yellow + '   -x-x-x-x-' + red + 'Você Morreu!' + yellow + '-x-x-x-x-' + normal)
             print(yellow + '   -x-x-x-x--x-x-x-x--x-x-x-x--x-' + normal)
