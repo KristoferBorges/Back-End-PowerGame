@@ -305,39 +305,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
             if card_monster == 'Infernal':
                 boss.play()
                 print(red + '   VOCÊ ENCONTROU UM BOSS INFERNAL')
-                if skipBoss >= 1:
-                    print(green + '    Você possui um item para Fugir!')
-                    print('    Deseja Fugir?')
-                    print(green + '                 Sim' + yellow + ' / ' + red + 'Não              ' + normal)
-                    escolha_usar_item = str(input('    --> ')).upper().strip()
-                    if escolha_usar_item == 'SIM' or escolha_usar_item == 'S':
-                        selecionar.play()
-                        print(ciano + '    Você Fugiu!')
-                        print(ciano + '    Seu item foi Consumido!')
-                        skipBoss = skipBoss - 1
-                        card_monster = random.choice(monsters)
-                        lv_monster = random.randint(1, 4)
-                        sleep(3)
-                    else:
-                        selecionar.play()
-                        print(ciano + '    Você não usou o item!')
-                        power_monster = power_monster + monster_power_lv10
-                        lv_monster = 10
-                        user_level = user_level - 5
-                        power_usuario = power_usuario - 1000
-                        print(red + '   DANO CRÍTICO!' + normal)
-                        sleep(3)
-                        critico_infernal()
-                elif skipBoss <= 0:
-                    power_monster = power_monster + monster_power_lv10
-                    lv_monster = 10
-                    user_level = user_level - 5
-                    power_usuario = power_usuario - 1000
-                    print(red + '   DANO CRÍTICO!' + normal)
-                    sleep(2)
-                    critico_infernal()
-                print('\n')
-                if_monsters()
+                Itens.skipBoss_fluxo()
         if choiceBonus > 0 and choice == 1:
             bonus.play()
             print(green + '    Você Encontrou um item Raro!')
