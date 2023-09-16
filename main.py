@@ -61,8 +61,7 @@ def if_monsters():
 
 
 class Itens:
-    def skipBoss_fluxo():
-        global skipBoss, power_monster, user_level, power_usuario, point
+    def skipBoss_fluxo(skipBoss, power_monster, user_level, power_usuario, point):
         if skipBoss >= 1:
             print(green + '    Você possui um item para Fugir!')
             print('    Deseja Fugir?')
@@ -98,8 +97,7 @@ class Itens:
         print('\n')
         if_monsters()
 
-    def aumento_de_poder():
-        global user_level, lv_monster, power_monster, lv_choice
+    def aumento_de_poder(user_level, lv_monster, power_monster, lv_choice):
         if user_level > 70 and power_usuario > 20000:
             lv_choice = random.randint(3, 7)
             lv_monster = lv_monster + lv_choice
@@ -273,6 +271,9 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
 
     # Condicionais para V/D monstros
     while power_usuario > 0:
+        # Ajuste de pontuação
+        if point <= 0:
+            point = 0
         # Variáveis para o Item de bonus
         powerBonus = random.randint(500, 2500)
         choice = random.randint(1, 50)
@@ -280,32 +281,32 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
         # Definição de níveis conforme a entidade + poder inicial
         if lv_monster == 1:
             power_monster = power_monster + power_lv1
-            Itens.aumento_de_poder()
+            Itens.aumento_de_poder(user_level, lv_monster, power_monster, lv_choice)
             if card_monster == 'Infernal':
                 boss.play()
                 print(red + '   VOCÊ ENCONTROU UM BOSS INFERNAL')
-                Itens.skipBoss_fluxo()
+                Itens.skipBoss_fluxo(skipBoss, power_monster, user_level, power_usuario, point)
         elif lv_monster == 2:
             power_monster = power_lv2
-            Itens.aumento_de_poder()
+            Itens.aumento_de_poder(user_level, lv_monster, power_monster, lv_choice)
             if card_monster == 'Infernal':
                 boss.play()
                 print(red + '   VOCÊ ENCONTROU UM BOSS INFERNAL')
-                Itens.skipBoss_fluxo()
+                Itens.skipBoss_fluxo(skipBoss, power_monster, user_level, power_usuario, point)
         elif lv_monster == 3:
             power_monster = power_lv3
-            Itens.aumento_de_poder()
+            Itens.aumento_de_poder(user_level, lv_monster, power_monster, lv_choice)
             if card_monster == 'Infernal':
                 boss.play()
                 print(red + '   VOCÊ ENCONTROU UM BOSS INFERNAL')
-                Itens.skipBoss_fluxo()
+                Itens.skipBoss_fluxo(skipBoss, power_monster, user_level, power_usuario, point)
         elif lv_monster == 4:
             power_monster = power_lv4
-            Itens.aumento_de_poder()
+            Itens.aumento_de_poder(user_level, lv_monster, power_monster, lv_choice)
             if card_monster == 'Infernal':
                 boss.play()
                 print(red + '   VOCÊ ENCONTROU UM BOSS INFERNAL')
-                Itens.skipBoss_fluxo()
+                Itens.skipBoss_fluxo(skipBoss, power_monster, user_level, power_usuario, point)
         if choiceBonus > 0 and choice == 1:
             bonus.play()
             print(green + '    Você Encontrou um item Raro!')
