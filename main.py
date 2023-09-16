@@ -39,7 +39,7 @@ def critico_infernal():
     global power_usuario, point
     if random.randint(1, 5) == 1:
         critico.play()
-        print(red + '   INFERNAL USOU SUA ULTMATE E INFRIGIU 5000 DE DANO' + normal)
+        print(red + '   INFERNAL USOU SUA ULTIMATE E INFRIGIU 5000 DE DANO' + normal)
         print(red + '   -200 Pontos' + normal)
         power_usuario = power_usuario - 4000
         point = point - 200
