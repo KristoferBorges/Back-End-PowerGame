@@ -14,14 +14,6 @@ mixer.music.load(r'app\media\music\digital.mp3')
 mixer.music.play(-1)
 
 # Processo para elevação de poder / nível após certo nível //
-def aumento_de_poder():
-    global user_level, lv_monster, power_monster, lv_choice
-    if user_level > 70 and power_usuario > 20000:
-        lv_choice = random.randint(3, 7)
-        lv_monster = lv_monster + lv_choice
-        power_monster = power_monster * lv_choice
-
-
 def roar():
     global roarChoice
     roarChoice = random.randint(1, 4)
@@ -66,6 +58,53 @@ def if_monsters():
     elif card_monster == 'Hidra' or card_monster == 'Spectro' or card_monster == 'Grifo' or \
             card_monster == 'Gólem':
         power_monster = power_monster + monster_power_lv4
+
+
+class Itens:
+    def skipBoss_fluxo():
+        global skipBoss, power_monster, user_level, power_usuario, point
+        if skipBoss >= 1:
+            print(green + '    Você possui um item para Fugir!')
+            print('    Deseja Fugir?')
+            print(green + '                 Sim' + yellow + ' / ' + red + 'Não              ' + normal)
+            escolha_usar_item = str(input('    --> ')).upper().strip()
+            if escolha_usar_item == 'SIM' or escolha_usar_item == 'S':
+                bonus.play()
+                print(ciano + '    Você Fugiu!')
+                print(ciano + '    Seu item foi Consumido!')
+                skipBoss = skipBoss - 1
+                card_monster = random.choice(monsters)
+                lv_monster = random.randint(1, 4)
+                sleep(3)
+            else:
+                selecionar.play()
+                print(ciano + '    Você não usou o item!')
+                power_monster = power_monster + monster_power_lv10
+                lv_monster = 10
+                user_level = user_level - 5
+                power_usuario = power_usuario - 1000
+                print(red + '   DANO CRÍTICO!' + normal)
+                sleep(3)
+                critico_infernal()
+        elif skipBoss <= 0:
+            power_monster = power_monster + monster_power_lv10
+            lv_monster = 10
+            user_level = user_level - 5
+            power_usuario = power_usuario - 1000
+            point = point - 100
+            print(red + '   DANO CRÍTICO!' + normal)
+            sleep(2)
+            critico_infernal()
+        print('\n')
+        if_monsters()
+
+    def aumento_de_poder():
+        global user_level, lv_monster, power_monster, lv_choice
+        if user_level > 70 and power_usuario > 20000:
+            lv_choice = random.randint(3, 7)
+            lv_monster = lv_monster + lv_choice
+            power_monster = power_monster * lv_choice
+
 
 # Contador de Batalhas
 cont = 0
@@ -241,125 +280,28 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
         # Definição de níveis conforme a entidade + poder inicial
         if lv_monster == 1:
             power_monster = power_monster + power_lv1
-            aumento_de_poder()
+            Itens.aumento_de_poder()
             if card_monster == 'Infernal':
                 boss.play()
                 print(red + '   VOCÊ ENCONTROU UM BOSS INFERNAL')
-                if skipBoss >= 1:
-                    print(green + '    Você possui um item para Fugir!')
-                    print('    Deseja Fugir?')
-                    print(green + '                 Sim' + yellow + ' / ' + red + 'Não              ' + normal)
-                    escolha_usar_item = str(input('    --> ')).upper().strip()
-                    if escolha_usar_item == 'SIM' or escolha_usar_item == 'S':
-                        bonus.play()
-                        print(ciano + '    Você Fugiu!')
-                        print(ciano + '    Seu item foi Consumido!')
-                        skipBoss = skipBoss - 1
-                        card_monster = random.choice(monsters)
-                        lv_monster = random.randint(1, 4)
-                        sleep(3)
-                    else:
-                        selecionar.play()
-                        print(ciano + '    Você não usou o item!')
-                        power_monster = power_monster + monster_power_lv10
-                        lv_monster = 10
-                        user_level = user_level - 5
-                        power_usuario = power_usuario - 1000
-                        print(red + '   DANO CRÍTICO!' + normal)
-                        sleep(3)
-                        critico_infernal()
-                elif skipBoss <= 0:
-                    power_monster = power_monster + monster_power_lv10
-                    lv_monster = 10
-                    user_level = user_level - 5
-                    power_usuario = power_usuario - 1000
-                    print(red + '   DANO CRÍTICO!' + normal)
-                    sleep(2)
-                    critico_infernal()
-                print('\n')
-                if_monsters()
+                Itens.skipBoss_fluxo()
         elif lv_monster == 2:
             power_monster = power_lv2
-            aumento_de_poder()
+            Itens.aumento_de_poder()
             if card_monster == 'Infernal':
                 boss.play()
                 print(red + '   VOCÊ ENCONTROU UM BOSS INFERNAL')
-                if skipBoss >= 1:
-                    print(green + '    Você possui um item para Fugir!')
-                    print('    Deseja Fugir?')
-                    print(green + '                 Sim' + yellow + ' / ' + red + 'Não              ' + normal)
-                    escolha_usar_item = str(input('    --> ')).upper().strip()
-                    if escolha_usar_item == 'SIM' or escolha_usar_item == 'S':
-                        bonus.play()
-                        print(ciano + '    Você Fugiu!')
-                        print(ciano + '    Seu item foi Consumido!')
-                        skipBoss = skipBoss - 1
-                        card_monster = random.choice(monsters)
-                        lv_monster = random.randint(1, 4)
-                        sleep(3)
-                    else:
-                        selecionar.play()
-                        print(ciano + '    Você não usou o item!')
-                        power_monster = power_monster + monster_power_lv10
-                        lv_monster = 10
-                        user_level = user_level - 5
-                        power_usuario = power_usuario - 1000
-                        print(red + '   DANO CRÍTICO!' + normal)
-                        sleep(3)
-                        critico_infernal()
-                elif skipBoss <= 0:
-                    power_monster = power_monster + monster_power_lv10
-                    lv_monster = 10
-                    user_level = user_level - 5
-                    power_usuario = power_usuario - 1000
-                    point = point - 100
-                    print(red + '   DANO CRÍTICO!' + normal)
-                    sleep(2)
-                    critico_infernal()
-                print('\n')
-                if_monsters()
+                Itens.skipBoss_fluxo()
         elif lv_monster == 3:
             power_monster = power_lv3
-            aumento_de_poder()
+            Itens.aumento_de_poder()
             if card_monster == 'Infernal':
                 boss.play()
                 print(red + '   VOCÊ ENCONTROU UM BOSS INFERNAL')
-                if skipBoss >= 1:
-                    print(green + '    Você possui um item para Fugir!')
-                    print('    Deseja Fugir?')
-                    print(green + '                 Sim' + yellow + ' / ' + red + 'Não              ' + normal)
-                    escolha_usar_item = str(input('    --> ')).upper().strip()
-                    if escolha_usar_item == 'SIM' or escolha_usar_item == 'S':
-                        bonus.play()
-                        print(ciano + '    Você Fugiu!')
-                        print(ciano + '    Seu item foi Consumido!')
-                        skipBoss = skipBoss - 1
-                        card_monster = random.choice(monsters)
-                        lv_monster = random.randint(1, 4)
-                        sleep(3)
-                    else:
-                        selecionar.play()
-                        print(ciano + '    Você não usou o item!')
-                        power_monster = power_monster + monster_power_lv10
-                        lv_monster = 10
-                        user_level = user_level - 5
-                        power_usuario = power_usuario - 1000
-                        print(red + '   DANO CRÍTICO!' + normal)
-                        sleep(3)
-                        critico_infernal()
-                elif skipBoss <= 0:
-                    power_monster = power_monster + monster_power_lv10
-                    lv_monster = 10
-                    user_level = user_level - 5
-                    power_usuario = power_usuario - 1000
-                    print(red + '   DANO CRÍTICO!' + normal)
-                    sleep(2)
-                    critico_infernal()
-                print('\n')
-                if_monsters()
+                Itens.skipBoss_fluxo()
         elif lv_monster == 4:
             power_monster = power_lv4
-            aumento_de_poder()
+            Itens.aumento_de_poder()
             if card_monster == 'Infernal':
                 boss.play()
                 print(red + '   VOCÊ ENCONTROU UM BOSS INFERNAL')
