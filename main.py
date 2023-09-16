@@ -2,7 +2,7 @@
 from pygame import mixer
 from time import sleep
 from app.functions.collet import colletData
-from app import selecionar, lose, win, boss, bonus, critico, roar1, roar2, roar3, roar4, roarlose, roardead
+from app import selecionar, lose, win, boss, bonus, critico, roarlose, roardead, roar
 from app import red, green, yellow, ciano, normal
 from app import resultado, escolha, skipBoss, choiceBonus, escolha_usar_item, soma_nivel, aposta, multiplicador, lv_choice, roarChoice, point, pointx
 import random
@@ -12,20 +12,6 @@ import random
 mixer.init()
 mixer.music.load(r'app\media\music\digital.mp3')
 mixer.music.play(-1)
-
-# Processo para elevação de poder / nível após certo nível //
-def roar():
-    global roarChoice
-    roarChoice = random.randint(1, 4)
-    if roarChoice == 1:
-        roar1.play()
-    elif roarChoice == 2:
-        roar2.play()
-    elif roarChoice == 3:
-        roar3.play()
-    elif roarChoice == 4:
-        roar4.play()
-
 
 def critico_infernal():
     global power_usuario, point
@@ -180,7 +166,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                 point = point - 10
                 if power_monster > power_usuario and card_monster == 'Infernal':
                     # Rugido
-                    roar()
+                    roar(roarChoice)
                 if point <= 0:
                     point = 0
             else:

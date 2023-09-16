@@ -1,5 +1,6 @@
 from random import randint
 from pygame import mixer
+import random
 
 # Caminho do arquivo de dados
 path = "app/data/storage.xlsx"
@@ -18,6 +19,17 @@ roar3 = mixer.Sound(r'app\media\music\Roar3.mp3')
 roar4 = mixer.Sound(r'app\media\music\Roar4.mp3')
 roarlose = mixer.Sound(r'app\media\music\RoarLose.mp3')
 roardead = mixer.Sound(r'app\media\music\Roardead.mp3')
+
+def roar(roarChoice):
+    roarChoice = random.randint(1, 4)
+    if roarChoice == 1:
+        roar1.play()
+    elif roarChoice == 2:
+        roar2.play()
+    elif roarChoice == 3:
+        roar3.play()
+    elif roarChoice == 4:
+        roar4.play()
 
 # Cores
 red = '\033[31m'
