@@ -84,6 +84,20 @@ class Itens:
         print('\n')
         if_monsters()
 
+    def choiceBonus_fluxo():
+        global choiceBonus, power_usuario 
+        if choiceBonus > 0 and choice == 1:
+            bonus.play()
+            print(green + '    Você Encontrou um item Raro!')
+            print('    Recebeu {} de Poder!'.format(powerBonus))
+            print(ciano + '    Seu item foi Consumido!')
+            choiceBonus = choiceBonus - 1
+            power_usuario = power_usuario + powerBonus
+            sleep(3)
+            print('\n')
+            
+
+
 def aumento_de_poder(user_level, lv_monster, power_monster, lv_choice):
         if user_level > 70 and power_usuario > 20000:
             lv_choice = random.randint(3, 7)
@@ -293,15 +307,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
                 boss.play()
                 print(red + '   VOCÊ ENCONTROU UM BOSS INFERNAL')
                 Itens.skipBoss_fluxo(power_monster, user_level, power_usuario, point)
-        if choiceBonus > 0 and choice == 1:
-            bonus.play()
-            print(green + '    Você Encontrou um item Raro!')
-            print('    Recebeu {} de Poder!'.format(powerBonus))
-            print(ciano + '    Seu item foi Consumido!')
-            choiceBonus = choiceBonus - 1
-            power_usuario = power_usuario + powerBonus
-            sleep(3)
-            print('\n')
+        Itens.choiceBonus_fluxo()
         # Condição para ganhar/perder o jogo
         if user_level == 100:
             # Atribuição de valores
