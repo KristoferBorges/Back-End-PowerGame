@@ -229,19 +229,19 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
     monsters_lv10 = ['Infernal']
 
     # Monstros lv1 - power
-    monster_power_lv1 = 200
+    monster_power_lv1 = 300
 
     # Monstros lv2 - power
-    monster_power_lv2 = 300
+    monster_power_lv2 = 400
 
     # Monstros lv3 - power
-    monster_power_lv3 = 400
+    monster_power_lv3 = 500
 
     # Monstros lv4 - power
-    monster_power_lv4 = 600
+    monster_power_lv4 = 700
 
     # Infernal lv10 - power
-    monster_power_lv10 = 10000
+    monster_power_lv10 = 13000
 
     # Personagens + Esquema de Poder
     # Definição de power por nível do usuário
@@ -276,7 +276,7 @@ if iniciar_jogo == 'SIM' or iniciar_jogo == 'S':
             point = 0
         # Variáveis para o Item de bonus
         powerBonus = random.randint(500, 2500)
-        choice = random.randint(1, 50)
+        choice = random.randint(1, 45)
         sleep(0.2)
         # Definição de níveis conforme a entidade + poder inicial
         if lv_monster == 1:
